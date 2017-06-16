@@ -56,8 +56,8 @@ class Command(BaseCommand):
             codes__code=ref,
             defaults={
                 'name': ref,
-                'generation_low': self.generation_id,
-                'generation_high': self.generation_id,
+                'generation_low_id': self.generation_id,
+                'generation_high_id': self.generation_id,
             })
         if created:
             # Then it won't have the right code object yet:
