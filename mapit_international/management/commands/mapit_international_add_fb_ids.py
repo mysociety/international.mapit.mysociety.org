@@ -51,6 +51,8 @@ class Command(BaseCommand):
                 new_fb_code = 'arr:{0}'.format(get_code(area, 'arr'))
             elif type_code == 'FRCOM':
                 new_fb_code = 'comm:{0}'.format(get_code(area, 'comm'))
+            elif type_code == 'FREUR':
+                new_fb_code = 'eur:{0}'.format(get_code(area, 'eur'))
             else:
                 raise Exception(
                     "Unknown area type code: '{0}'".format(type_code))
