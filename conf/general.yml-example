@@ -18,6 +18,9 @@ COUNTRY: 'International'
 # Optional, defaults to 4326.
 AREA_SRID: 4326
 
+# The maximum distance allowed for returning areas within a distance of a point.
+WITHIN_MAXIMUM: 10000
+
 # A secret key for this particular Django installation.
 # Set this to a random string -- the longer, the better.
 DJANGO_SECRET_KEY: 'q3cbe2&-utn)je80(k&qp0-1_uu0*f!fc(xbt2w49$bt7u^4sx'
