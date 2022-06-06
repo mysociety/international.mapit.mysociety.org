@@ -11,3 +11,4 @@
 .venv
 .static
 .vagrant
+.python-version
