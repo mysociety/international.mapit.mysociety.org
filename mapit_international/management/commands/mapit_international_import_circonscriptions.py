@@ -76,7 +76,7 @@ class Command(BaseCommand):
         layer = ds[0]
         with transaction.atomic():
             for feature in layer:
-                ref = unicode(feature['REF'])
+                ref = str(feature['REF'])
                 ref_to_polygons[ref].append(feature.geom)
-            for ref, polygons in ref_to_polygons.items():
+            for ref, polygons in list(ref_to_polygons.items()):
                 self.update_area(ref, polygons)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function, unicode_literals
+
 
 from collections import defaultdict
 import re
@@ -121,14 +121,14 @@ DEPARTMENT_TO_EUR = {
 
 
 EUR_ID_TO_NAME = {
-    'est': u'Est',
-    'ile-de-france': u'Île-de-France',
-    'massif-central-centre': u'Massif Central-Centre',
-    'nord-ouest': u'Nord-Ouest',
-    'ouest': u'Ouest',
-    'outre-mer': u'Outre-Mer',
-    'sud-est': u'Sud-Est',
-    'sud-ouest': u'Sud-Ouest',
+    'est': 'Est',
+    'ile-de-france': 'Île-de-France',
+    'massif-central-centre': 'Massif Central-Centre',
+    'nord-ouest': 'Nord-Ouest',
+    'ouest': 'Ouest',
+    'outre-mer': 'Outre-Mer',
+    'sud-est': 'Sud-Est',
+    'sud-ouest': 'Sud-Ouest',
 }
 
 
@@ -210,9 +210,9 @@ class Command(BaseCommand):
         layer = ds[0]
         with transaction.atomic():
             for feature in layer:
-                insee_code = unicode(feature['code_insee'])
+                insee_code = str(feature['code_insee'])
                 code_key = re.sub(r'^0*', '', insee_code)
                 eur_id = DEPARTMENT_TO_EUR[code_key]
                 eur_id_to_polygons[eur_id].append(feature.geom)
-            for eur_id, polygons in eur_id_to_polygons.items():
+            for eur_id, polygons in list(eur_id_to_polygons.items()):
                 self.update_area(eur_id, polygons)
