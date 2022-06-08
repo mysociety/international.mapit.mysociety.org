@@ -38,3 +38,7 @@ RATE_LIMIT:
 # Email address that errors should be sent to. Optional.
 BUGS_EMAIL: 'example@example.org'
 EMAIL_SUBJECT_PREFIX: '[International MapIt] '
+
+# Default for implicit primary key type. For projects with Django >=3.2
+# may wish to use a different setting.
+DEFAULT_AUTO_FIELD: 'django.db.models.AutoField'
